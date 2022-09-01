@@ -18,7 +18,7 @@ Clone the repository using
 `git clone https://github.com/andy2507/brain-tumor-segmentation-and-visualization.git`
 
 ## Loading the models
-You will have to update the `root directory` and `model` parameters to run the app successfully. The models can be found in https://drive.google.com/drive/folders/1yAjUVtIYICDGq4j9hh4IuUEkkKFgyRK1?usp=sharing and the root directory will be the directory the folder is present in  
+You will have to update the `root_directory` and `ckpt_path` parameters in the files `classification.py`,`segresnet.py` and `yolo.py` to run the app successfully. The models can be found in https://drive.google.com/drive/folders/1yAjUVtIYICDGq4j9hh4IuUEkkKFgyRK1?usp=sharing. Download the files and map the directories accordingly. The root_directory will be the directory the folder is present in  
 
 ## Running the models
 To run, enter the folder and type `python app.py` into the command line. 
