@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Table </title>   
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table.css') }}">           
+    </head>
+    <body>
+        <center>
+            <h3>YOLO Bounding Boxes</h1>
+        </center>
+        <div align="center">
+            <!-- <include src='classify.html'></include> -->
+            <table>
+                <h1> 
+                      {% for table in tables %}
+                    <h2>{{titles[loop.index]}}</h2>                            
+                    {{ table|safe }}
+                    {% endfor %}     
+                </h1> 
+            </table>
+            <!-- {{tables}} -->
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+body
+{
+    background-color: rgba(50,67,152,1);
+    color: white;
+}
+.dataframe
+{
+    text-align: center;
+    border-style: solid;
+    
+}
+table
+{
+    text-align: center;
+    border-style: solid;
+}
+td
+{
+    text-align: center;
+    width: 10px;
+    height: 10px;
+}

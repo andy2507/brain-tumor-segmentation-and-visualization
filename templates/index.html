@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- iOS meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" type="text/css" href="static/css/papaya.css?build=1453" />
+    <script type="text/javascript" src="static/javascript/papaya.js?build=1453"></script>
+
+    <title>Visualizer</title>
+
+    <script type="text/javascript">
+        var params = [];
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark custom-color" style="background-color: rgba(50,67,152,1);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Visualizer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Sample List item for singular option -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li> -->
+                    <!-- Sample List item for dropdown buttons -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+            </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">File
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/load">Load file</a></li>
+                            <li><a class="dropdown-item" href="/run_all">Run All</a></li>
+
+                        </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Pre-Processing
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">                            
+                            <li><a class="dropdown-item"href="/yolo">YOLO</a></li>
+                            <li><a class="dropdown-item" href="/normalize_volume">Normalization by Volume</a></li>
+                            <li><a class="dropdown-item" href="/normalize_frame">Normalization by Frame</a></li>
+                        </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Segmentation Algorithms
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- <li><a class="dropdown-item" href="/">Run Vanilla U-Net</a></li> -->
+                            <li><a class="dropdown-item" href="/segmentation">Run 3D SegResNet</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Classification Algorithms
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/classify">Run 3D DenseNet</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Help
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Tutorials</a></li>
+                            <li><a class="dropdown-item" href="#">Quickstart</a></li>
+                            <li><a class="dropdown-item" href="#">Ask a Question</a></li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div style="background-color: rgba(50,67,152,1); color: white;">
+        <br><br>
+        <b>
+            <center> {{filename}}</center>
+        </b>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="papaya" data-params="params"></div>
+            </div>
+            <div class="col">
+                <div class="papaya" data-params="params"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: rgba(50,67,152,1); color: white;">
+        <p
+            style="background-color: white;text-align: center;align-items: center; color: black;font-family:'Sans Serif'; margin-left: 150px; margin-right: 150px; border-radius: 5px; border: solid; border-color: rgb(47, 46, 46);">
+
+            <b>Tumor type: </b> {{ tumor_type }} <br>
+            <b>CSV File saved at: </b> <a href="/yolo_table/{{filename}}">{{csv_file}}</a> <br>
+            <b>Yolo File saved at: </b>{{yolo_file}} <br>
+            <b>Segmentation File saved at: </b>{{segmentation}}
+        </p>
+        <br>
+    </div>
+</body>
+
+</html>

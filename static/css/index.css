@@ -1,0 +1,28 @@
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    background-color:  rgba(50,67,152,1) ;
+    min-width: 100vw;
+    min-height: 100vh;   
+    margin:0;
+    padding:75px;
+
+}
+
+.navbar-custom{
+    background-color: #0D47A1;
+}
+
+.custom-color{
+    background-color: rgba(50,67,152,1) ;
+
+}
+
+.results{
+    background-color: rgba(50,67,152,1) ;
+    text-align: center;
+    align-items: center;
+}
