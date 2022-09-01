@@ -14,7 +14,7 @@ class Normalize():
     Normalize image
     '''
     def __init__(self,filename):
-        self.data_root = ''
+        self.data_root = os.getcwd()
         self.filename=filename
         self.result_dest_frame = os.path.join(self.data_root,filename,'results',"normalized_by_frame.nii.gz")
         self.result_dest_volume = os.path.join(self.data_root,filename,'results',"normalized_by_volume.nii.gz")

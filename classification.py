@@ -23,7 +23,7 @@ class PredictUsingDensenet():
         self.model = self.get_model()
         self.post_pred = Compose([EnsureType(), Activations(softmax=True)])
         self.post_label = Compose([EnsureType(), AsDiscrete(to_onehot=2)])
-        self.root_dir = "/home/andrea/Notebooks/FYP/frontend_html_css"
+        self.root_dir = os.getcwd()
         # sample filename BraTS19_2013_10_1
 
     def get_model(self):

@@ -44,7 +44,7 @@ class PredictionWithYolo():
   Class to Predict with YOLO and save results into a .csv file
   '''
   def __init__(self,filename):
-    self.root_dir = "/home/andrea/Notebooks/FYP/frontend_html_css"
+    self.root_dir = os.getcwd()
     self.filename = filename
     self.file_flair = os.path.join(self.root_dir,self.filename,self.filename+'_flair.nii.gz')
     self.output_folder_slices = f'{self.root_dir}/{self.filename}'

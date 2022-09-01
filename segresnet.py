@@ -44,7 +44,7 @@ class PredictWithSegResNet():
     '''
     def __init__(self,file_name):
         self.ckpt_path = '/home/andrea/Notebooks/FYP/Flask_file/best_metric_model.pth'
-        self.root_directory = '/home/andrea/Notebooks/FYP/frontend_html_css'
+        self.root_directory = os.getcwd()
         self.filename = file_name
         self.result_dest = os.path.join(self.root_directory,self.filename,'results',"prediction_segmentation.nii.gz")
         if torch.cuda.is_available():  
