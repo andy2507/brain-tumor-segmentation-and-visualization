@@ -43,15 +43,15 @@ class PredictWithSegResNet():
     Predict using SegResNet
     '''
     def __init__(self,file_name):
-        self.model_path = '/home/andrea/Notebooks/FYP/Flask_file/best_metric_model.pth'
-        self.data_root = '/home/andrea/Notebooks/FYP/frontend_html_css'
+        self.ckpt_path = '/home/andrea/Notebooks/FYP/Flask_file/best_metric_model.pth'
+        self.root_directory = '/home/andrea/Notebooks/FYP/frontend_html_css'
         self.filename = file_name
-        self.result_dest = os.path.join(self.data_root,self.filename,'results',"prediction_segmentation.nii.gz")
+        self.result_dest = os.path.join(self.root_directory,self.filename,'results',"prediction_segmentation.nii.gz")
         if torch.cuda.is_available():  
             self.device = "cuda:0" 
         else:  
             self.device = "cpu" 
-        self.model = self.get_model(self.model_path)
+        self.model = self.get_model(self.ckpt_path)
         self.img = self.get_img()
         self.img = self.normalise(self.img)
         self.VAL_AMP = True
@@ -79,10 +79,10 @@ class PredictWithSegResNet():
         '''
         Returns concatenation of all four modalities
         '''
-        flair_img = np.expand_dims(nib.load(os.path.join(self.data_root,self.filename,self.filename+'_flair.nii.gz')).get_fdata(),axis=0)
-        t1_img = np.expand_dims(nib.load(os.path.join(self.data_root,self.filename,self.filename+'_t1.nii.gz')).get_fdata(),axis=0)
-        t1ce_img = np.expand_dims(nib.load(os.path.join(self.data_root,self.filename,self.filename+'_t1ce.nii.gz')).get_fdata(),axis=0)
-        t2_img = np.expand_dims(nib.load(os.path.join(self.data_root,self.filename,self.filename+'_t2.nii.gz')).get_fdata(),axis=0)
+        flair_img = np.expand_dims(nib.load(os.path.join(self.root_directory,self.filename,self.filename+'_flair.nii.gz')).get_fdata(),axis=0)
+        t1_img = np.expand_dims(nib.load(os.path.join(self.root_directory,self.filename,self.filename+'_t1.nii.gz')).get_fdata(),axis=0)
+        t1ce_img = np.expand_dims(nib.load(os.path.join(self.root_directory,self.filename,self.filename+'_t1ce.nii.gz')).get_fdata(),axis=0)
+        t2_img = np.expand_dims(nib.load(os.path.join(self.root_directory,self.filename,self.filename+'_t2.nii.gz')).get_fdata(),axis=0)
 
         flair_img = np.rot90(flair_img,1,axes=(1,2))
         t1_img = np.rot90(t1_img,1,axes=(1,2))
@@ -159,7 +159,7 @@ class PredictWithSegResNet():
         '''
         Returns the ground truth
         '''
-        seg = nib.load(os.path.join(self.data_root,self.filename,self.filename+'_seg.nii.gz')).get_fdata()
+        seg = nib.load(os.path.join(self.root_directory,self.filename,self.filename+'_seg.nii.gz')).get_fdata()
         seg = np.expand_dims(seg,axis=0)
         seg = np.rot90(seg,1,axes=(1,2))
         return seg
@@ -209,7 +209,7 @@ class PredictWithSegResNet():
         '''
         Returns Flair image
         '''
-        flair_img = np.expand_dims(nib.load(os.path.join(self.data_root,self.filename,self.filename+'_flair.nii.gz')).get_fdata(),axis=0)
+        flair_img = np.expand_dims(nib.load(os.path.join(self.root_directory,self.filename,self.filename+'_flair.nii.gz')).get_fdata(),axis=0)
         return flair_img
     
     def save_nifti(self,y_pred):

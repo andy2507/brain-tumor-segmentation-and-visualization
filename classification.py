@@ -19,7 +19,7 @@ from monai.transforms import Activations, AddChanneld, AsDiscrete, Compose, Load
 class PredictUsingDensenet():
     def __init__(self):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model_path = "/home/andrea/Notebooks/FYP/monai/classification/best_metric_model_classification3d_dict.pth"
+        self.ckpt_path = "/home/andrea/Notebooks/FYP/monai/classification/best_metric_model_classification3d_dict.pth"
         self.model = self.get_model()
         self.post_pred = Compose([EnsureType(), Activations(softmax=True)])
         self.post_label = Compose([EnsureType(), AsDiscrete(to_onehot=2)])
@@ -29,10 +29,10 @@ class PredictUsingDensenet():
     def get_model(self):
         if self.device!="cuda":
             model = monai.networks.nets.DenseNet121(spatial_dims=3, in_channels=1, out_channels=3)
-            model.load_state_dict(torch.load(self.model_path,map_location=torch.device('cpu')))
+            model.load_state_dict(torch.load(self.ckpt_path,map_location=torch.device('cpu')))
         else:
             model = monai.networks.nets.DenseNet121(spatial_dims=3, in_channels=1, out_channels=3).to(self.device)
-            model.load_state_dict(torch.load(self.model_path))
+            model.load_state_dict(torch.load(self.ckpt_path))
         return model
     
     def predict(self,filename):
