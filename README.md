@@ -21,6 +21,7 @@ Clone the repository using
 You will have to update the `root_directory` and `ckpt_path` parameters in the files `classification.py`,`segresnet.py` and `yolo.py` to run the app successfully. The models can be found in https://drive.google.com/drive/folders/1yAjUVtIYICDGq4j9hh4IuUEkkKFgyRK1?usp=sharing. Download the files and map the directories accordingly. The root_directory will be the directory the folder is present in  
 
 ## Running the models
-To run, enter the folder and type `python app.py` into the command line. 
+First enter the repository folder and install the dependencies using `pip install requirements.txt`
+To run, while you are still inside the repository folder, type `python app.py` into the command line. 
 
-Go to the link provided and load a folder containing all four modalities: flair, T1, T1ce T2 using the option in File. Run the models necessary and view the results on the visualizer!
+Go to the link provided and load a folder containing all four modalities: flair, T1, T1ce T2 using the option in File. Run the models necessary and view the results on the visualizer! Two examples along with the results are present in the repository as well!
